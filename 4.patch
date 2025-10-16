@@ -1,0 +1,57 @@
+From b43991feccd96db1094ac1c3b16b4d5961c696ca Mon Sep 17 00:00:00 2001
+From: vuatech <vuatech@proton.me>
+Date: Thu, 16 Oct 2025 18:11:09 -0400
+Subject: [PATCH] Added missing dependency check for distros that split
+ packages and added changes to fix clang builds
+
+---
+ CMakeLists.txt        | 1 +
+ src/palette/Color.cpp | 8 +++++---
+ 2 files changed, 6 insertions(+), 3 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 51db6f7..47de150 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -36,6 +36,7 @@ pkg_check_modules(
+   xkbcommon
+   pango
+   cairo
++  pangocairo
+   iniparser
+   hyprgraphics>=0.2.0
+   aquamarine>=0.9.5
+diff --git a/src/palette/Color.cpp b/src/palette/Color.cpp
+index 0460061..59eec29 100644
+--- a/src/palette/Color.cpp
++++ b/src/palette/Color.cpp
+@@ -1,8 +1,10 @@
+ #include <hyprtoolkit/palette/Color.hpp>
+ #include "../Macros.hpp"
+ #include "../helpers/Memory.hpp"
++#include <hyprutils/memory/Casts.hpp>
+ 
+ using namespace Hyprtoolkit;
++using namespace Hyprutils::Memory;
+ 
+ #define ALPHA(c) ((double)(((c) >> 24) & 0xff) / 255.0)
+ #define RED(c)   ((double)(((c) >> 16) & 0xff) / 255.0)
+@@ -66,15 +68,15 @@ Hyprgraphics::CColor::SHSL CHyprColor::asHSL() const {
+ }
+ 
+ CHyprColor CHyprColor::stripA() const {
+-    return {r, g, b, 1.F};
++    return {sc<float>(r), sc<float>(g), sc<float>(b), 1.F};
+ }
+ 
+ CHyprColor CHyprColor::brighten(float coeff) const {
+-    return {r * (1.F + coeff), g * (1.F + coeff), b * (1.F + coeff), a};
++    return {sc<float>(r * (1.F + coeff)), sc<float>(g * (1.F + coeff)), sc<float>(b * (1.F + coeff)), sc<float>(a)};
+ }
+ 
+ CHyprColor CHyprColor::darken(float coeff) const {
+-    return {r * (1.F - coeff), g * (1.F - coeff), b * (1.F - coeff), a};
++    return {sc<float>(r * (1.F - coeff)), sc<float>(g * (1.F - coeff)), sc<float>(b * (1.F - coeff)), sc<float>(a)};
+ }
+ 
+ CHyprColor CHyprColor::mix(const CHyprColor& with, float coeff) const {
