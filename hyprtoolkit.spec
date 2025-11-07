@@ -3,7 +3,7 @@
 %define devname %mklibname hyprtoolkit -d
 
 Name:		hyprtoolkit
-Version:        0.2.1
+Version:        0.2.2
 Release:	1
 Source0:        https://github.com/hyprwm/hyprtoolkit/archive/v%{version}/%{name}-v%{version}.tar.gz
 Summary:        A modern C++ Wayland-native GUI toolkit
@@ -20,6 +20,7 @@ BuildRequires:  pkgconfig(wayland-protocols)
 BuildRequires:  pkgconfig(egl)
 BuildRequires:  pkgconfig(hyprutils) >= 0.9.0
 BuildRequires:  pkgconfig(hyprlang) >= 0.6.0
+BuildRequires:  pkgconfig(hyprgraphics) >= 0.3.0
 BuildRequires:  pkgconfig(pixman-1)
 BuildRequires:  pkgconfig(libdrm)
 BuildRequires:  pkgconfig(gbm)
