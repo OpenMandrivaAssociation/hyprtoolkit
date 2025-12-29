@@ -1,10 +1,10 @@
-%define major 4
+%define major 5
 %define libname %mklibname hyprtoolkit
 %define devname %mklibname hyprtoolkit -d
 
 Name:		hyprtoolkit
-Version:        0.4.1
-Release:        3
+Version:        0.5.0
+Release:        1
 Source0:        https://github.com/hyprwm/hyprtoolkit/archive/v%{version}/%{name}-v%{version}.tar.gz
 Summary:        A modern C++ Wayland-native GUI toolkit
 URL:            https://github.com/hyprwm/hyprtoolkit
