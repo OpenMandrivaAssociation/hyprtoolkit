@@ -4,7 +4,7 @@
 
 Name:		hyprtoolkit
 Version:        0.5.2
-Release:        1
+Release:        2
 Source0:        https://github.com/hyprwm/hyprtoolkit/archive/v%{version}/%{name}-v%{version}.tar.gz
 Summary:        A modern C++ Wayland-native GUI toolkit
 URL:            https://github.com/hyprwm/hyprtoolkit
