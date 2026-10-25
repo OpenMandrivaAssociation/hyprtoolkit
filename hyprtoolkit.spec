@@ -1,4 +1,4 @@
-%define major 5
+%define major 6
 %define libname %mklibname hyprtoolkit
 %define devname %mklibname hyprtoolkit -d
 
