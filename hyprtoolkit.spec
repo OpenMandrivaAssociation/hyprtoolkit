@@ -4,7 +4,7 @@
 
 Name:		hyprtoolkit
 Version:        0.6.0
-Release:        1
+Release:        2
 Source0:        https://github.com/hyprwm/hyprtoolkit/archive/v%{version}/%{name}-v%{version}.tar.gz
 Summary:        A modern C++ Wayland-native GUI toolkit
 URL:            https://github.com/hyprwm/hyprtoolkit
@@ -27,7 +27,7 @@ BuildRequires:  pkgconfig(gbm)
 BuildRequires:  pkgconfig(xkbcommon)
 BuildRequires:  pkgconfig(pango)
 BuildRequires:  pkgconfig(cairo)
-BuildRequires:  pkgconfig(hyprgraphics) >= 0.2.0
+BuildRequires:  pkgconfig(hyprgraphics) >= 0.6.0
 BuildRequires:  pkgconfig(aquamarine) >= 0.9.5
 BuildRequires:  pkgconfig(hyprwayland-scanner) >= 0.4.0
 BuildRequires:  pkgconfig(pangocairo)
